@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,9 +29,11 @@ class HomeController extends Controller
         // $all_products = Product::withCount('images', 'comments')->limit(16)->get();
         // $best_seller  = Product::withCount('orderDetails', 'comments')->get()->sortByDesc('orderDetails_count')->take(20);
         $products=Product::with('images')->paginate(20);
+        $listCategories=Category::where('parent_id', '=', null);
+
         //dd($products);
 
 
-        return view('home',compact('products'));
+        return view('home',compact('products','listCategories'));
     }
 }

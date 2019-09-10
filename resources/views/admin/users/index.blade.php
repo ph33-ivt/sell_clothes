@@ -98,11 +98,11 @@
                                     </table>
 
     </div>
-    <div  class="container-fluid p-y-md">
-              <div style="padding-left: 400px;" class="col-lg-12">
-                  {{$users->links()}}
-              </div>
-    </div>
+    <!-- <div  class="container-fluid p-y-md">
+                <div style="padding-left: 400px;" class="col-lg-12">
+                    {{ $users->links() }}
+                </div>
+      </div> -->
     </div>
 
   </div>

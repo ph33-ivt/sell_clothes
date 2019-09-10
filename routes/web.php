@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
-
-Auth::routes();
 
 Route::group([
     'middleware' => 'IsAdmin',
@@ -26,6 +23,9 @@ Route::group([
     Route::get('products', 'ProductController@index')->name('products.index');
     Route::get('products/{product}/detail', 'ProductController@detailProductId')->name('product.detail');
     Route::get('products/{product}/edit', 'ProductController@edit')->name('products.edit');
+    Route::get('products/{product}/productSizes/create', 'ProductController@createProductSize')->name('products.createProductSize');
+    Route::post('products/{product}/productSizes/store', 'ProductController@storeProductSize')->name('products.storeProductSize');
+    // Route::get('products', 'ProductController@addStore')->name('products.addStore');
     Route::get('products/create', 'ProductController@create')->name('product.create');
     Route::post('products', 'ProductController@store')->name('product.store');
     Route::put('products/{product}', 'ProductController@update')->name('products.update');
@@ -46,6 +46,7 @@ Route::group([
     Route::get('orders', 'OrderController@index')->name('orders.index');
     Route::delete('order/{id}', 'OrderController@destroy')->name('order.destroy');
     Route::get('order/{id}', 'OrderController@detail')->name('order.detail');
+    // Route::put('dashboard/{order}', 'HomeController@updateStatus')->name('status');
     
 
     //User
@@ -84,9 +85,8 @@ Route::post('cart/{id}', 'CartController@addCart')->name('cart.add');
 Route::post('cart/update', 'CartController@updateCart')->name('cart.update');
 Route::get('cart/remove/{id}','CartController@removeCart')->where('id','[0-9]+')->name('cart.remove');
 
-
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
-
 
 

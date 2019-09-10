@@ -48,7 +48,7 @@
                 </fieldset>
                 <fieldset class="form-group">
                    <label>Brand</label>
-                   <input type="text" class="form-control" id="brand" value="{{$product->brand}}" name="code">
+                   <input type="text" class="form-control" id="brand" value="{{$product->brand}}" name="brand">
                 </fieldset>
                 <fieldset class="form-group">
                   <label>Description</label>
@@ -71,8 +71,10 @@
                     </select>
                     </fieldset>
                 <div class="form-group row">
+
                         <div class="col-md-4 @error('images_up') has-error @enderror">
                             <img id="blah" src="{{asset($product->images[0]->path)}}" alt="your image" width="100" height="100" style="display: block"/>
+                           
                             <label for="images">Images <sup class="title-danger">*</sup>:</label>
                             <input type="file" @error('images_up') id="inputError" @enderror class="form-control" name="images_up[]" id="images" multiple
                                    onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])"

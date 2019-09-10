@@ -23,13 +23,13 @@
 				<div class="col-lg-6">
 					<div class="s_product_img">
 						<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-							<!-- <ol class="carousel-indicators">
+							<ol class="carousel-indicators">
 								@foreach($product->images as $image)
-								<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+								<li data-target="#carouselExampleIndicators" class="active" data-slide-to="0">
 									<img src="{{asset($image->path)}}" alt="">
 								</li>
 								@endforeach
-							</ol> -->
+							</ol> 
 							<div class="carousel-inner">
 								@foreach($product->images as $image)
 								<div class="carousel-item active">

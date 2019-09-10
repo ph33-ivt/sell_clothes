@@ -15,12 +15,15 @@ class OrderController extends Controller
     public function index()
     {
     	$orders = Order::with('orderInfo')->paginate(15);
+        dd($orders);
+        //dd($orderInfo);
 
         return view('admin.orders.index', compact('orders'));
     }
     public function destroy($id)
     {
     	$order = Order::find($id);
+        $OrderDetail=OrderDetail::where('order_id',$id)->delete();
         $order->delete();
         Session::flash('success','Xóa thành công!');
         return redirect()->back();

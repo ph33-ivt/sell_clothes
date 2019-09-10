@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Product;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 use App\Http\Controllers\Controller;
 use App\Image;
 use App\Category;
@@ -22,25 +23,45 @@ class ProductController extends Controller
 
     public function detailProductId(Product $product)
     {
-        //dd($product->productSize);
-        $productSize = $product->productSize;
+       //dd($product);
+       //dd($product->productSize);
+        $productSize = $product->productSizes;
+        // dd($productSize->pluck('size')->toArray());
+        // dd($productSize->sum('quantity'));
         $images = $product->images;
+        //dd($images);
 
         return view('admin.products.detail',compact('productSize','images','product'));
-   
     }
+
+    public function createProductSize(Product $product){
+        return view('admin.products.add', compact('product'));
+    }
+
+    public function storeProductSize(Product $product, Request $request)
+    {
+        $product->productSizes()->create($request->only(['size', 'quantity']));
+
+        return redirect()->route('admin.products.index');
+    }
+
+    public function addStore(Product $product){
+        
+        
+        return view('admin.products.addStore', compact('product'));
+    }
+
     public function edit($id){
         $categories = Category::where('parent_id', '!=', null);
         $product    = Product::find($id);
         return view('admin.products.edit', compact('categories', 'product'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
         $data = $request->except('_token','_method');
-        $product=Product::find($id);
         $product->update($data);
-        //dd($data);
+        
         Session::flash('success','Cập nhật thành công!');
 
         return redirect()->route('admin.products.index');

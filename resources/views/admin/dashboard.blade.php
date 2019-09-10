@@ -21,12 +21,9 @@
                 <div class="inner">
                     <h3></h3>
 
-                    <p>New Orders</p>
+                    <p>Đã duyệt {{ $numberOfApprovedOrders }}</p>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="?status=approved" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -36,12 +33,9 @@
                 <div class="inner">
                     <h3></h3>
 
-                    <p>Đã duyệt</p>
+                    <p>Hoàn tất : {{ $numberOfCompleteOrders }}</p>
                 </div>
-                <div class="icon">
-                    <i class="fa fa-comments"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="?status=complete" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -51,12 +45,9 @@
                 <div class="inner">
                     <h3></h3>
 
-                    <p>Chưa duyệt</p>
+                    <p>Chờ xử lý {{ $numberOfPendingOrders }}</p>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="?status=pending" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -66,12 +57,9 @@
                 <div class="inner">
                     <h3></h3>
 
-                    <p>Đã xóa</p>
+                    <p>Đã hủy {{ $numberOfCancelledOrders }}</p>
                 </div>
-                <div class="icon">
-                    <i class="fa fa-tablet"></i>
-                </div>
-                <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="?status=cancelled" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->

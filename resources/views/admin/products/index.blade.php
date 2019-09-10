@@ -71,6 +71,8 @@
             <td style="text-align: center;">{{number_format($product->price) }} đ</td>
             <td style="padding-left: 50px;">{{ $product->category_id }}</td>
             <td>
+              <a href="{{ route('admin.products.createProductSize',  $product->id ) }}" class="btn btn-xs btn-default"><i>+</i>
+              </a>
               <a href="{{ route('admin.products.edit',  $product->id ) }}" class="btn btn-xs btn-default"><i class="ion-edit"></i>
               </a>
               <form action="{{ route('admin.product.destroy', $product->id) }}" method="post" style="display: inline">
@@ -84,11 +86,11 @@
         </tbody>
       </table>
     </div>
-    <div  class="container-fluid p-y-md">
-              <div style="padding-left: 400px;" class="col-lg-12">
-                 
-              </div>
-    </div>
+       <div  class="container-fluid p-y-md">
+                <div style="padding-left: 400px;" class="col-lg-12">
+                    {{$products->links()}}
+                </div>
+      </div>
     </div>
 
   </div>

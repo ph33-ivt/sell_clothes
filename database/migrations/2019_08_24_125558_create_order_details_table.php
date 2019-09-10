@@ -20,8 +20,7 @@ class CreateOrderDetailsTable extends Migration
             $table->decimal('price', 10, 0);
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('product_id')->references('id')->on('products');
+          
             $table->timestamps();
         });
     }

@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/jquery.datetimepicker.css') }}">
+
 </head>
 
 <body>
@@ -28,8 +30,9 @@
     @yield('content')
     @include('layouts.partials.footer')
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.css') }}, then Bootstrap JS -->
-    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <!-- jQuery first, then Popper.css') }}') }}, then Bootstrap JS -->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="{{ asset('js/popper.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/stellar.js') }}"></script>
@@ -40,10 +43,13 @@
     <script src="{{ asset('vendors/owl-carousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
     <script src="{{ asset('vendors/counter-up/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('vendors/flipclock/timer.js') }}"></script>
+    <!-- <script src="{{ asset('vendors/flipclock/timer.js') }}"></script> -->
     <script src="{{ asset('vendors/counter-up/jquery.counterup.js') }}"></script>
     <script src="{{ asset('js/mail-script.js') }}"></script>
     <script src="{{ asset('js/theme.js') }}"></script>
+    <script type="text/javascript">
+
+    </script>
 </body>
 
 </html>

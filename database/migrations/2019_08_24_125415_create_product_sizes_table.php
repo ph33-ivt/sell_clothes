@@ -18,7 +18,6 @@ class CreateProductSizesTable extends Migration
             $table->string('size');
             $table->integer('quantity');
             $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

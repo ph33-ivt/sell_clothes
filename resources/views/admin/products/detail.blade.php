@@ -18,8 +18,14 @@
                 <div class="tab-pane active" id="btabs-static-home">
                     <div class="card-body">
                         <div class="row"  >
-             
-                            <div class="col-sm-4" > <img style="width: 400px; height: 500px;float:left" src="{{asset($product->images[0]->path)}}"> 
+                            
+                            <div class="col-sm-4" > 
+                              @if(count($images))
+                              <img style="width: 400px; height: 500px;float:left" src="{{asset($product->images[0]->path)}}"> 
+                              @else
+                              <img style="width: 400px; height: 500px;float:left" src="">
+                              @endif
+
                             </div>
 
                             <div class="col-sm-8">
@@ -27,8 +33,11 @@
                             <p><b>Mã sản phẩm:</b> {{$product->code}}</p><br>
                             <p><b>Tên sản phẩm:</b> {{$product->name}}</p><br>
                             <p><b>Hãng:</b> {{$product->brand}}</p><br>
-                            <p><b>Size :</b> {{$productSize->size}}</p><br>
-                            <p><b>Số lượng :</b> {{$productSize->quantity}}</p><br>
+                            
+                            <p><b>Size :</b> {{implode(',', $productSize->pluck('size')->toArray())}}</p>
+                            <br>
+
+                            <p><b>Số lượng :</b> {{$productSize->sum('quantity')}}</p><br>
                            
                             <p><b>Giá: </b>{{number_format($product->price)}}đ</p><br>
                               </div>

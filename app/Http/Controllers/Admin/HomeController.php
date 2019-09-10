@@ -16,9 +16,8 @@ class HomeController extends Controller
 
             $orders = Order::where('status', $status)->orderBy('id')->paginate(8);
 
-            return view('admin.orders.status', [
+            return view('admin.status', [
                 'status' => $status,
-                'orders' => $orders,
             ]);
         } else {
 
@@ -38,4 +37,5 @@ class HomeController extends Controller
         }
         // return view('admin.dashboard');
     }
+   
 }

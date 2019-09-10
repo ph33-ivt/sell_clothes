@@ -40,11 +40,11 @@ class UserFormRequest extends FormRequest
             'email.required'      => 'Vui lòng nhập Email',
             'password.required'   => 'Vui lòng nhập mật khẩu',
             'password.min'        => 'Mật khẩu phải có ít nhất 6 ký tự',
-            'first_name.required' => 'Vui lòng nhập liệu',
-            'last_name.required'  => 'Vui lòng nhập liệu',
-            'birthday.required'   => 'Vui lòng Nhập liệu',
+            'first_name.required' => 'Vui lòng nhập họ',
+            'last_name.required'  => 'Vui lòng nhập tên',
+            'birthday.required'   => 'Vui lòng ngày sinh',
             'birthday.date'       => 'Bạn nhập không phải ngày',
-            'sex.required'        => 'Vui lòng nhập liệu',
+            'sex.required'        => 'Vui lòng chọn giới tính',
             'role_id.required'    => 'Vui lòng Nhập liệu',
         ];
     }

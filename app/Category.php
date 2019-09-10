@@ -17,7 +17,7 @@ class Category extends Model
 
     public function parent()
     {
-        return $this->hasOne('App\Category', 'id');
+        return $this->belongsTo('App\Category', 'id');
     }
 
     public function child()

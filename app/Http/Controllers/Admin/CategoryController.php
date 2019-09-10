@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 use Session;
 
 class CategoryController extends Controller
@@ -16,10 +17,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-    	  $categories = Category::where('parent_id', null)->with('child.child')->get();
-        // $categories = Category::where('parent_id', '=', null)->with('parent_id')->get();
+    	$categories = Category::where('parent_id', null)->with('child.child')->get();
 
         return view('admin.categories.index', ['categories' => $categories]);
+
     }
 
     /**
@@ -103,7 +104,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-       $category->delete();
+        $category->child()->get()->each->delete();            
+        $category->delete();
         return redirect()->back()->with('success','Xóa thành công!');
     }
 }

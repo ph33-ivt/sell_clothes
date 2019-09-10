@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->date('birthday')->nullable();
             $table->enum('sex', ['male', 'female']);
             $table->unsignedBigInteger('role_id');
-            $table->foreign('role_id')->references('id')->on('roles');
+
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
